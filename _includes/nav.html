@@ -1,0 +1,70 @@
+{% if page.locale == "ja" %}
+  {% assign nav-locale = site.data.navigation-ja %}
+  {% assign lang = "言語" %}
+{% else %}
+  {% assign nav-locale = site.data.navigation %}
+  {% assign lang = "Language" %}
+{% endif %}
+<nav class="navbar navbar-expand-md navbar-light fixed-top navbar-custom {% if page.nav-short %}top-nav-short-permanent{% else %}top-nav-regular{% endif %}">
+
+  {% if site.avatar and page.show-avatar != false %}
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        <a href="{{ nav-locale.first.url | absolute_url }}">
+          <img alt="Navigation bar avatar" class="avatar-img" src="{{ site.avatar | relative_url }}" />
+        </a>
+      </div>
+    </div>
+  {% endif %}
+
+  {%- if site.title-img -%}
+    <a class="navbar-brand navbar-brand-logo" href="{{ '' | absolute_url }}"><img alt="{{ site.title }} Logo" src="{{ site.title-img }}"/></a>
+  {%- elsif site.title -%}
+    <a class="navbar-brand" href="{{ nav-locale.first.url | absolute_url }}">{{ site.title }}</a>
+  {%- endif -%}
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="main-navbar">
+    <ul class="navbar-nav ml-auto">
+      {%- for link in nav-locale -%}
+        {% if forloop.first and page.title == link.title %}
+          {% continue %}
+        {% endif %}
+        {%- if link.sub -%}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ link.title }}</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              {% for sub-link in link.sub %}
+                <a class="dropdown-item" href="{{ sub-link.url | absolute_url }}">{{ sub-link.title }}</a>
+              {%- endfor %}
+            </div>
+          </li>
+        {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{ link.url | absolute_url }}">{{ link.title }}</a>
+          </li>
+        {%- endif -%}
+      {%- endfor -%}
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ lang }}</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          {% assign support-languages = "ja" | split: "," %} {% comment %}"ja","fr",...,...{% endcomment %}
+          {% for language in nav-locale.first.languages %}
+            {% assign _urls = page.url | split: "/" %}
+            {% assign urls = "" %}
+            {% for url in _urls %}
+              {% unless url == blank or (forloop.index == 2 and support-languages contains url) %}
+                {% assign urls = urls | append:  url | append: "/" %}
+              {% endunless %}
+            {% endfor %}
+            {% assign urls = urls | remove_first: "/" %}
+            <a class="dropdown-item" href="{{ language.url | append: urls | absolute_url }}">{{ language.title }}</a>
+          {%- endfor %}
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>

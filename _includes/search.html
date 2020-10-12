@@ -1,0 +1,12 @@
+{% if page.locale == "ja" %}
+  {% assign placeholder = "検索" %}
+  {% assign result-text = "検索結果の件数: " %}
+{% else %}
+  {% assign placeholder = "Search" %}
+  {% assign result-text = "The number of search results: " %}
+{% endif %}
+<div class="search">
+  <input type="text" id="search-keywords" placeholder="{{ placeholder }}" data-baseurl="{{ site.baseurl }}" data-result-text="{{ result-text }}" onInput="searchContents()" onKeyDown="isComposing()" /><input type="reset" value="&#x00D7" class="reset-button" onclick="resetSearch()" />
+  <div id="search-results">
+  </div>
+</div>

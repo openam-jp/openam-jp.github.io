@@ -1,0 +1,33 @@
+---
+layout: none
+---
+{% assign all-contents = '' %}
+{% assign all-contents = all-contents | append: '[' %}
+  {% for page in site.pages %}
+    {% assign exclision-url = '/tags/' | split: ',' %}
+    {% assign extension = page.url | slice: -1,1 %}
+    {% if page.search == false or extension != '/' or exclision-url contains page.url %}
+      {% continue %}
+    {% endif %}
+    {% assign all-contents = all-contents | append: '{' %}
+      {% assign title = page.title | escape %}
+      {% assign all-contents = all-contents | append: '"title": "' | append: title | append: '",' %}
+      {% assign sub-title = page.sub-title | escape %}
+      {% assign all-contents = all-contents | append: '"subtitle": "' | append: sub-title | append: '",' %}
+      {% assign all-contents = all-contents | append: '"tags" :[' %}
+      {% for tag in page.tags%}
+        {% assign all-contents = all-contents | append: '"' | append: tag | append: '"' %}
+        {% unless forloop.last %}
+          {% assign all-contents = all-contents | append: ',' %}
+        {% endunless %}
+      {% endfor %}
+      {% assign all-contents = all-contents | append: '],' %}
+      {% assign all-contents = all-contents | append: '"url": "' | append:  page.url | append: '",' %}
+      {% assign content = page.content | strip_html | strip_newlines | escape %}
+      {% assign all-contents = all-contents | append: '"content": "' | append: content %}
+    {% assign all-contents = all-contents | append: '"},' %}
+  {% endfor %}
+{% assign all-contents = all-contents | append: ']' %}
+{% assign contents-size = all-contents | size | minus: 2 %}
+{% assign all-contents =  all-contents | slice: 0,contents-size | append: ']' %}
+{{ all-contents }}

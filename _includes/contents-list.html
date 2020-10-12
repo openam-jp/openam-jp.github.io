@@ -1,0 +1,37 @@
+{% if page.locale == "ja" %}
+  {% assign nav-locale = site.data.navigation-ja %}
+  {% assign doc = "ドキュメント" %}
+{% else %}
+  {% assign nav-locale = site.data.navigation %}
+  {% assign doc = "documents" %}
+{% endif %}
+{% assign array = "" | split: "|" %}
+{% for _array in nav-locale %}
+  {% if _array.title != page.title %}
+    {% assign array = array | push:_array %}
+  {% endif %}
+{% endfor %}
+{% assign skip = 4 %} <!-- Column length -->
+<div class="flex-title"><h3>{{ doc }}</h3></div>
+{% assign loop = array.size | minus:1 | divided_by:skip %}
+{% for i in (0..loop) %}
+  {% assign index = i | times:skip %}
+  {% assign skipped-index = i | plus:1 | times:skip | minus:1 %}
+   <div class="flex-home">
+     {% for j in (index..skipped-index) %}
+       {% unless array[j] %}
+         {% break %}
+       {% endunless %}
+       {% if array[j].title == page.title %}
+         {% continue %}
+       {% endif %}
+       <a href="{{ array[j].url | absolute_url }}">
+         <div class="home-img">
+           <img src="{{ site.url }}{{ site.baseurl }}/images/{{ array[j].image-p }}" alt="{{ array[j].title }}" class="active">
+           <img src="{{ site.url }}{{ site.baseurl }}/images/{{ array[j].image-b }}" alt="{{ array[j].title }}">
+         </div>
+         {{ array[j].title }}
+       </a>
+     {% endfor %}
+   </div>
+{% endfor %}

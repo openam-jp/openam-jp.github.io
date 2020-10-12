@@ -1,0 +1,34 @@
+{% if page.locale == "ja" %}
+  {% assign nav-locale = site.data.navigation-ja %}
+{% else %}
+  {% assign nav-locale = site.data.navigation %}
+{% endif %}
+{% unless page.title == nav-locale.first.title or page.sub-title == nav-locale.first.sub-title %}
+<ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+  <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+    <a itemprop="item" href="{{ nav-locale[0].url | absolute_url }}"><span itemprop="name">{{ nav-locale[0].title }}</span></a>
+    <meta itemprop="position" content="1" />
+  </li>
+{% for nav in nav-locale %}
+  {% if nav.title contains page.title%}
+    {% include breadcrumb-1.html %}
+    {% break %}
+  {% endif %}
+  {% for sub in nav.sub %}
+    {% if sub.title contains page.title %}
+      {% include breadcrumb-1.html %}
+      {% include breadcrumb-2.html %}
+      {% break %}
+    {% endif %}
+    {% for sub2 in sub.sub %}
+      {% if sub2.title contains page.title %}
+        {% include breadcrumb-1.html %}
+        {% include breadcrumb-2.html %}
+        {% include breadcrumb-3.html %}
+        {% break %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+{% endfor %}
+</ol>
+{% endunless %}

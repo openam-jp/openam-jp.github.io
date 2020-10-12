@@ -1,0 +1,48 @@
+# Site navigation links
+
+ - title: Home        # MUST be first
+   sub-title: Welcome to Open Consortium Community Site
+   url: /
+   image: home-white.png
+   image-b: home-black.png
+   image-p: home-primary.png
+   languages:
+     - title: 日本語
+       url: /ja/
+
+ - title: Release Notes
+   url: /Release-Notes/
+   image: release-white.png
+   image-b: release-black.png
+   image-p: release-primary.png
+   sub:
+     - title: OpenAM 14.0.0
+       url: /OpenAM-14.0.0-Release-Notes/
+
+ - title: Administrator's Guide
+   url: /Administrator-Guide/
+   image: guide-white.png
+   image-b: guide-black.png
+   image-p: guide-primary.png
+   sub:
+     - title: Authentication
+       url: /Authentication/
+       sub:
+         - title: WebAuthn
+           url: /WebAuthn/
+     - title: SAML 2.0
+       url: /SAML-2.0/
+       sub:
+         - title: Policy based access control for SAML IdP
+           url: /Policy-based-access-control-for-SAML-IdP/
+     - title: OpenID Connect / OAuth 2.0
+       url: /OpenID-Connect/
+       sub:
+         - title: Policy based access control for OIDC OP
+           url: /Policy-based-access-control-for-OIDC-OP/
+
+ - title: Setup
+   url: /Setup/
+   image: setting-white.png
+   image-b: setting-black.png
+   image-p: setting-primary.png
