@@ -1,5 +1,4 @@
 ---
-locale: ja
 title: OpenID Connect / OAuth 2.0
 ---
 OpenAM を OIDC プロバイダーとして利用する場合は、以下のドキュメントをご覧ください。

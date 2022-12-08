@@ -1,6 +1,8 @@
 ---
 layout: none
 ---
+{% capture newline %}
+{% endcapture %}
 {% assign all-contents = '' %}
 {% assign all-contents = all-contents | append: '[' %}
   {% for page in site.pages %}
@@ -23,7 +25,7 @@ layout: none
       {% endfor %}
       {% assign all-contents = all-contents | append: '],' %}
       {% assign all-contents = all-contents | append: '"url": "' | append:  page.url | append: '",' %}
-      {% assign content = page.content | strip_html | strip_newlines | escape %}
+      {% assign content = page.content | strip_html | replace: newline, " " | escape %}
       {% assign all-contents = all-contents | append: '"content": "' | append: content %}
     {% assign all-contents = all-contents | append: '"},' %}
   {% endfor %}

@@ -1,6 +1,5 @@
 ---
 title: Policy based access control for SAML IdP
-updated: true
 ---
 This page describes how to protect a SAML IdP with policies.
 

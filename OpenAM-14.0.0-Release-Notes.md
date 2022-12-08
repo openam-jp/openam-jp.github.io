@@ -1,6 +1,5 @@
 ---
 title: OpenAM 14.0.0
-updated: true
 ---
 Release Date : December 23, 2019
 

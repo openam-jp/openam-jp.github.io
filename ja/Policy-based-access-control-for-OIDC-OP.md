@@ -1,7 +1,5 @@
 ---
 title: OIDC OP のポリシーベースアクセス制御
-locale: ja
-updated: true
 ---
 このページでは、OIDC OP をポリシーで保護する方法を説明します。
 

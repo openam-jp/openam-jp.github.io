@@ -1,5 +1,4 @@
 ---
-locale: ja
 title: 管理者ガイド
 ---
 ## OpenAM

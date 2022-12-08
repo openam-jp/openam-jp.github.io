@@ -1,4 +1,6 @@
-{% if page.locale == "ja" %}
+{% assign url = page.url | split: "/" | shift %}
+{% assign locale = url | first %}
+{% if locale == "ja" %}
   {% assign nav-locale = site.data.navigation-ja %}
 {% else %}
   {% assign nav-locale = site.data.navigation %}

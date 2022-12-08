@@ -1,7 +1,5 @@
 ---
 title: SAML IdP のポリシーベースアクセス制御
-locale: ja
-updated: true
 ---
 このページでは、SAML IdP をポリシーで保護する方法を説明します。
 

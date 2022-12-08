@@ -1,7 +1,5 @@
 ---
 title: WebAuthn
-locale: ja
-updated: true
 ---
 このページでは、WebAuthn 認証モジュールの利用方法について説明します。
 

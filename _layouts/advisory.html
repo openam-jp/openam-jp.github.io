@@ -1,0 +1,72 @@
+---
+layout: base
+---
+
+{% include header.html type="page" %}
+
+<div class="{% if page.full-width %} container-fluid {% else %} container-md {% endif %}" role="main">
+  <div class="row">
+    <div class="{% if page.full-width %} col {% else %} col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 {% endif %}">
+      {% if page.before-content %}
+        <div class="before-content">
+          {% for file in page.before-content %}
+            {% include {{ file }} %}
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      {% assign url = page.url | split: "/" | shift %}
+      {% assign locale = url | first %}
+      {% if locale == "ja" %}
+        {% assign nav-locale = site.data.navigation-ja %}
+      {% else %}
+        {% assign nav-locale = site.data.navigation %}
+      {% endif %}
+      <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a itemprop="item" href="{{ nav-locale[0].url | absolute_url }}"><span itemprop="name">{{ nav-locale[0].title }}</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+      {% capture current %}{{page.title}}/{% endcapture %}
+      {% assign base = page.url | replace: current, "" %}
+      {% for nav in nav-locale %}
+        {% if nav.url contains base%}
+          {% include breadcrumb-1.html %}
+          {% break %}
+        {% endif %}
+        {% for sub in nav.sub %}
+          {% if sub.url contains base %}
+            {% include breadcrumb-1.html %}
+            {% include breadcrumb-2.html %}
+            {% break %}
+          {% endif %}
+          {% for sub2 in sub.sub %}
+            {% if sub2.url contains base %}
+              {% include breadcrumb-1.html %}
+              {% include breadcrumb-2.html %}
+              {% include breadcrumb-3.html %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+      {% endfor %}
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a itemprop="item" href="{{ page.url | absolute_url }}"><span itemprop="name">{{ page.title }}</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+      </ol>
+      {% include advisory-header.html %}
+      {{ content }}
+
+      {% if page.after-content %}
+        <div class="after-content">
+          {% for file in page.after-content %}
+            {% include {{ file }} %}
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      {% include comments.html %}
+    </div>
+  </div>
+</div>

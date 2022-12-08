@@ -120,12 +120,8 @@ async function searchContents() {
         }
         link2.appendChild(document.createElement('br'));
       }
-      let content;
-      if (result.content.length > 30) {
-        content = result.content.substring(0, 30) + '...';
-      } else {
-        content = result.content;
-      }
+      let content = result.content;
+
       link2.appendChild(document.createTextNode(unescapeString(content)));
       let td2 = document.createElement('td');
       td2.appendChild(link2);

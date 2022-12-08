@@ -1,6 +1,5 @@
 ---
 title: WebAuthn
-updated: true
 ---
 This page describes how to use the WebAuthn authentication module.
 

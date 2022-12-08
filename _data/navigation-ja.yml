@@ -46,3 +46,14 @@
    image: setting-white.png
    image-b: setting-black.png
    image-p: setting-primary.png
+
+ - title: セキュリティ
+   url: /ja/Security/
+   image: authentication-white.png
+   image-b: authentication-black.png
+   image-p: authentication-primary.png
+   sub:
+     - title: 脆弱性公開ポリシー
+       url: /ja/Disclosure-Policy/
+     - title: セキュリティアドバイザリー一覧
+       url: /ja/Advisories/

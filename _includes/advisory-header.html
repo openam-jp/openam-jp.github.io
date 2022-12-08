@@ -1,0 +1,31 @@
+{% assign url = page.url | split: "/" | shift %}
+{% assign locale = url | first %}
+{% if locale == "ja" %}
+  {% assign published = "公開日" %}
+  {% assign severity-rating = "深刻度" %}
+  {% assign cvss-score = "CVSS スコア" %}
+  {% assign affected = "対象製品" %}
+  {% assign last-updated = "最終更新日" %}
+  {% assign date-format = "%Y年 %m月 %d日" %}
+{% else %}
+  {% assign published = "Published" %}
+  {% assign severity-rating = "Severity Rating" %}
+  {% assign cvss-score = "CVSS Score" %}
+  {% assign affected = "Affected Products" %}
+  {% assign last-updated = "Updated" %}
+  {% assign date-format = "%B %-d, %Y"%}
+{% endif %}
+<div class="advisory-header">
+  {{published}}: <code>{{page.published|date: date-format}}</code>
+  /
+  {{last-updated}}: <code>{{page.last-updated|date: date-format}}</code>
+  <br>
+  {{severity-rating}}: <code>{{page.severity-rating}}</code>
+  <br>
+  {{cvss-score}}: <code>{{page.cvss-score}}</code>
+  <br>
+  {{affected}}:
+  {% for product in page.affected %}
+    <code>{{product}}</code>
+  {% endfor %}
+</div>

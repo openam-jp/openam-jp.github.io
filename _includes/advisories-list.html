@@ -1,0 +1,13 @@
+{% assign url = page.url | split: "/" | shift %}
+{% assign locale = url | first %}
+{% assign sitepages = site.pages | where:"layout","advisory" %}
+{% assign sitepages = sitepages | sort:"published" | reverse %}
+{% for sitepage in sitepages %}
+  {% assign siteurl = sitepage.url | split: "/" | shift %}
+  {% assign sitelocale = siteurl | first %}
+  {% if sitelocale == locale %}
+    <ul>
+      <li>{{sitepage.published | date: '%Y-%m-%d'}} <a href="{{sitepage.title}}">{{sitepage.title}}</a><br>{{sitepage.overview}}</li>
+    </ul>
+  {% endif %}
+{% endfor %}

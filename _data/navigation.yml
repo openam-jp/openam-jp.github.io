@@ -46,3 +46,14 @@
    image: setting-white.png
    image-b: setting-black.png
    image-p: setting-primary.png
+
+ - title: Security
+   url: /Security/
+   image: authentication-white.png
+   image-b: authentication-black.png
+   image-p: authentication-primary.png
+   sub:
+     - title: Vulnerability Disclosure Policy
+       url: /Disclosure-Policy/
+     - title: Security Advisories
+       url: /Advisories/

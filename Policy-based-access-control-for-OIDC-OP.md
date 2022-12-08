@@ -1,6 +1,5 @@
 ---
 title: Policy based access control for OIDC OP
-updated: true
 ---
 This page describes how to protect OIDC OP with policies.
 

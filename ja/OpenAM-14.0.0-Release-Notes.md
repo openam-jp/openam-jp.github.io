@@ -1,7 +1,5 @@
 ---
 title: OpenAM 14.0.0
-locale: ja
-updated: true
 ---
 リリース日 : 2019 年 12 月 23 日
 

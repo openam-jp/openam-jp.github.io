@@ -253,9 +253,15 @@ input#search-keywords:focus {
   background-color: white;
   margin-top: 0;
   margin-bottom: 2rem;
+  table-layout: fixed;
 }
 #search-results tr td:first-child {
   width: 30%;
+}
+#search-results tr td:nth-child(2) > a {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 #search-results td > a {
   display: block;
