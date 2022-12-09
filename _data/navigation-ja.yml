@@ -41,7 +41,7 @@
          - title: OIDC OP のポリシーベースアクセス制御
            url: /ja/Policy-based-access-control-for-OIDC-OP/
 
- - title: 設定
+ - title: セットアップ
    url: /ja/Setup/
    image: setting-white.png
    image-b: setting-black.png
