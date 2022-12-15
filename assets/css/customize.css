@@ -109,7 +109,7 @@ pre {
   padding-right: 2rem;
   padding-left: 2rem;
 }
-@media (max-width: 767px){
+@media (max-width: 991px){
   .navbar-custom {
     padding-right: 0.5rem;
     padding-left: 0.5rem;
@@ -137,9 +137,6 @@ a.nav-link, .navbar-brand, .beautiful-jekyll-footer a {
 
 .navbar-expand-md .navbar-nav .nav-link.dropdown-toggle {
   position: relative;
-}
-.navbar-custom .nav-item.dropdown .dropdown-menu {
-  min-width: 8em;
 }
 
 .home-img {
@@ -176,6 +173,7 @@ a.nav-link, .navbar-brand, .beautiful-jekyll-footer a {
   margin: 10px;
   text-decoration: none;
   color: {{ site.text-col | default: "#404040" }};
+  word-break: keep-all;
 }
 .flex-home > a:hover {
   color: var(--openam-primary);
@@ -319,6 +317,14 @@ a .sns-title {
   margin-right: 0.7rem;
   font-size: 0.875rem;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+li.nav-item a {
+  white-space: nowrap;
+}
+@media (min-width: 992px) {
+  .navbar-custom .nav-item.dropdown .dropdown-menu {
+    width: 200px;
+  }
 }
 
 ::-moz-selection {

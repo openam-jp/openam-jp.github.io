@@ -269,7 +269,7 @@ img {
   border: 0;
   padding: 0;
   width: 100%;
-  word-break: break-word;
+  word-break: normal;
 }
 .navbar-custom .nav-item.dropdown .dropdown-menu .dropdown-item {
   white-space: normal;
@@ -280,7 +280,7 @@ img {
   font-weight: normal;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .navbar-custom .nav-item.dropdown .dropdown-menu {
     text-align: center;
   }
@@ -292,7 +292,7 @@ img {
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .navbar-custom .navbar-collapse {
     border-top: 1px solid {{ site.navbar-border-col | default: "#DDDDDD" }};
     margin: 0 -1rem;

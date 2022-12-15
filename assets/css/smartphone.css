@@ -2,7 +2,7 @@
 layout: null
 ---
 
-@media (max-width: 500px) {
+@media (max-width: 550px) {
   .flex-home > a {
     font-size: 0.8rem;
   }
