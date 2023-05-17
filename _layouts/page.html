@@ -16,7 +16,7 @@ layout: base
       {% endif %}
 
       {% include breadcrumb.html %}
-      {{ content }}
+      {% include replace-content.html content=content %}
 
       {% if page.after-content %}
         <div class="after-content">

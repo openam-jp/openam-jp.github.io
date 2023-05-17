@@ -1,0 +1,13 @@
+{% assign content = include.content %}
+{% assign url = page.url | split: "/" | shift %}
+{% assign locale = url | first %}
+{% for text in site.data.text-to-replace %}
+  {% if locale == "ja" %}
+    {% assign description = text.description-ja %}
+  {% else %}
+    {% assign description = text.description %}
+  {% endif %}
+  {% assign text-img = '<img class="text-to-img" src="../../images/' | append: text.image | append: '" alt="' | append: description | append: '">' %}
+  {% assign content = content | replace: text.text, text-img %}
+{% endfor %}
+{{ content }}

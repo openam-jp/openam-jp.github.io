@@ -16,7 +16,7 @@ layout: base
       {% endif %}
 
       {% include breadcrumb.html %}
-      {{content}}
+      {% include replace-content.html content=content %}
       {% include advisories-list.html %}
 
       {% if page.after-content %}

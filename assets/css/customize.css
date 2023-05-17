@@ -333,3 +333,7 @@ li.nav-item a {
 ::selection {
   background-color: {{ site.text-col | default: "#404040" }};
 }
+
+img.text-to-img {
+  height: 1.4rem;
+}

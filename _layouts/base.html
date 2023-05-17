@@ -20,6 +20,7 @@ common-ext-js:
 common-js:
   - "/assets/js/beautifuljekyll.js"
   - "/assets/js/search.js"
+  - "/assets/js/text-to-image.js"
 ---
 
 <!DOCTYPE html>
@@ -33,7 +34,7 @@ common-js:
 
   {% include nav.html %}
 
-  {{ content }}
+  {% include replace-content.html content=content %}
   </div>
   {% include footer.html %}
 

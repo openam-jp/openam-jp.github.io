@@ -1,0 +1,13 @@
+## List of text to be replaced by the image
+# text: text in the markdown to be replaced
+# id: ID for each text
+# image: image displayed in place of the text
+# image-hover-title: message displayed when hovering over the image
+# image-click-title: message displayed when the image is clicked
+# image-failure-title: message displayed when a process failed
+# description: image alt attribute value
+
+ - text: "[VULNERABILITY_EMAIL_ADDRESS]"
+   image: report.png
+   description: "Email address for vulnerability reporting"
+   description-ja: "脆弱性報告用メールアドレス"
