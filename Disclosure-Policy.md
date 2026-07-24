@@ -25,7 +25,7 @@ Vulnerability reporting is limited to the software managed in the following repo
 
 ## Vulnerability Response Process
 
-The vulnerability response process consists of the following 4 steps:
+The vulnerability response process consists of the following 5 steps:
 
 ### 1. Report Acknowledgment
 
