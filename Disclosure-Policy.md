@@ -42,6 +42,12 @@ Depending on the nature of the vulnerability, we will prepare the following meas
 - Fix: Patches, fixes, etc. to remove or mitigate the vulnerability.
 - Workaround: Actions to reduce the impact of a vulnerability exploit, etc.
 
-### 4. Security Advisory Publication
+### 4. CVE ID Assignment
 
-We will publish the security advisory. The publication timing will be shared in advance with the reporter.
+If the investigation confirms an undisclosed vulnerability in a product within our scope, we, as a CNA, will assign a CVE ID and notify the reporter.
+
+### 5. Publication of Security Advisory and CVE Record
+
+Once a fix or mitigation is prepared, we will publish a security advisory containing the CVE ID on our [Security Advisories](../Advisories) page. Simultaneously, we will submit the CVE Record to CVE Services for publication.
+
+Please note that the publication timing for both the security advisory and the CVE Record will be coordinated with the reporter in advance.
